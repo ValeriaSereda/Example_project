@@ -1,11 +1,13 @@
 # funkcja liczaca objetosc kuli 
-def kula(r):
+def stozek(r,h):
     if r < 0:
      return ("error: radius is negative")
+    if h < 0:
+      return ("error: high is negative")
     pi = 3.14159265359
-    ob_kula = 4/3*pi*(r**3)
-    return ob_kula 
-print (f'Obijetosc kuli wynosi: {kula(2)}')
+    ob_stozek = 1/3*pi*(r**2)*h
+    return ob_stozek
+print (f'Obijetosc stożka wynosi: {stozek(3,2)}')
 
 assert kula(5) == 523.5987755983333
 assert kula(3.4) == 164.63621020893513
