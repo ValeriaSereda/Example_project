@@ -9,10 +9,10 @@ def stozek(r,h):
     return ob_stozek
 print (f'Obijetosc stożka wynosi: {stozek(3,2)}')
 
-assert kula(5) == 523.5987755983333
-assert kula(3.4) == 164.63621020893513
-assert kula(0) == 0
-assert kula(-3) == "error: radius is negative"
+assert stozek(5, 6) == 157.0796326795
+assert stozek(3.4, 3.2) == 38.73793181386709
+assert stozek(0, 3) == 0
+assert stozek(3, -0.1) == "error: high is negative"
 
 def cube_params(side: float):
   """This function computes and returns volume and area of a cube with a given side length."""
