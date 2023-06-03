@@ -1,5 +1,7 @@
 # funkcja liczaca objetosc kuli 
 def kula(r):
+    if r < 0:
+     return ("error: radius is negative")
     pi = 3.14159265359
     ob_kula = 4/3*pi*(r**3)
     return ob_kula 
