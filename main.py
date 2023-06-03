@@ -8,4 +8,4 @@ print (f'Obijetosc kuli wynosi: {kula(2)}')
 assert kula(5) == 523.5987755983333
 assert kula(3.4) == 164.63621020893513
 assert kula(0) == 0
-assert kula(-3) == -113.09733552924
+assert kula(-3) == "error: radius is negative"
