@@ -49,3 +49,7 @@ def pyramid_params(base_edge: float, side_height: float, height: float):
     "volume": volume,
     "area": total_area
   }
+assert pyramid_params (3, 2, 1.5) == { "volume": 4.5, "area": 21 }
+assert pyramid_params (-1, 5, 4) ==  "error: one of the values is negative" 
+assert pyramid_params (0,0,0) == { "volume": 0, "area": 0 }
+assert pyramid_params (3,-1,5) == "error: one of the values is negative" 
