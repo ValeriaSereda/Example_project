@@ -2,7 +2,7 @@ class Pracownik:
   def __init__(self, first_name, last_name, salary):
     self.first_name = first_name
     self.last_name = last_name
-    self.salary = salary
+    self.salary = salary 
 
   def oblicz_netto(self):
     skladka_emeryt = self.salary * 0.0976
@@ -16,8 +16,14 @@ class Pracownik:
     zaliczka_na_dochodowy = 0.12 * podstawa_na_dochodowy - 300
     
     return round(podstawa_na_zdrowotne - skladka_zdrowotna - zaliczka_na_dochodowy, 2)
+  
+pracownik1 = Pracownik('Jan', 'Kowalski', 3500)
+pracownik2 = Pracownik('Mateusz', 'Kwiatkowski', 8500)
 
-  def wygeneruj_raport(self):
+assert pracownik1.oblicz_netto() == 2715.94
+assert pracownik2.oblicz_netto() == 6124.33
+
+def wygeneruj_raport(self):
     skladka_emeryt = self.salary * 0.0976
     skladka_rentowa = self.salary * 0.015
     skladka_ubezp_chor = self.salary * 0.0245
