@@ -18,6 +18,9 @@ class Pracownik:
         return (koszty_pracodawcy) 
         
 Pracownik_1 = Pracownik('Jan', 'Kowalski',3500) 
-print (Pracownik_1)
-koszty_pracodawcy_Pracownik_1 = Pracownik_1.koszty_pracodawcy()
-print(f"Koszty pracodawcy dla pracownika 1 wynoszą: {koszty_pracodawcy_Pracownik_1:.2f}")
+Pracownik_2 = Pracownik('Tomasz', "Torpeda", 3450.553)
+
+assert print(Pracownik_1) == "Jan Kowalski, 3500"
+assert print(Pracownik_2) == "Tomasz Torpeda, 3450.55"
+assert Pracownik_1.koszty_pracodawcy() == 4216.8
+assert Pracownik_2.koszty_pracodawcy() == 4157.23
