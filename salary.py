@@ -17,13 +17,7 @@ class Pracownik:
     
     return round(podstawa_na_zdrowotne - skladka_zdrowotna - zaliczka_na_dochodowy, 2)
   
-pracownik1 = Pracownik('Jan', 'Kowalski', 3500)
-pracownik2 = Pracownik('Mateusz', 'Kwiatkowski', 8500)
-
-assert pracownik1.oblicz_netto() == 2715.94
-assert pracownik2.oblicz_netto() == 6124.33
-
-def wygeneruj_raport(self):
+  def wygeneruj_raport(self):
     skladka_emeryt = self.salary * 0.0976
     skladka_rentowa = self.salary * 0.015
     skladka_ubezp_chor = self.salary * 0.0245
@@ -40,3 +34,9 @@ def wygeneruj_raport(self):
     print(f"Składka na ubezpieczenie zdrowotne: {round(skladka_zdrowotna, 2)}")
     print("=====================")
     print(f"Kwota wynagrodzenia: {round(podstawa_na_zdrowotne - skladka_zdrowotna - zaliczka_na_dochodowy, 2)}")
+
+pracownik1 = Pracownik('Jan', 'Kowalski', 3500)
+pracownik2 = Pracownik('Mateusz', 'Kwiatkowski', 8500)
+
+assert pracownik1.oblicz_netto() == 2715.94
+assert pracownik2.oblicz_netto() == 6124.33
