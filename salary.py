@@ -1,3 +1,5 @@
+import csv
+
 class Pracownik:
   def __init__(self, first_name, last_name, salary):
     self.first_name = first_name
@@ -48,3 +50,23 @@ class Pracownik:
     print("=====================")
     print(f"Kwota wynagrodzenia: {round(podstawa_na_zdrowotne - skladka_zdrowotna - zaliczka_na_dochodowy, 2)}")
 
+pracownik1 = Pracownik('Jan', 'Kowalski', 3500)
+pracownik2 = Pracownik('Mateusz', 'Kwiatkowski', 8500)
+
+assert pracownik1.oblicz_netto() == 2715.94
+assert pracownik2.oblicz_netto() == 6124.33
+
+with open("pracownicy.csv", "r", encoding="UTF8", newline="") as file:
+  reader = csv.reader(file)
+  
+  #skip the header
+  next(reader)
+
+  for line in reader:
+    pracownik = Pracownik(line[0], line[1], line[2])
+
+    print(pracownik)
+    print(f"Kwota netto: {pracownik.oblicz_netto()}")
+    print(f"Koszty pracodawcy: {pracownik.oblicz_koszty_pracodawcy()}")
+    print(f"Raport: {pracownik.wygeneruj_raport()}")
+    print()
