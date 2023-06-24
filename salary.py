@@ -63,10 +63,11 @@ with open("pracownicy.csv", "r", encoding="UTF8", newline="") as file:
   next(reader)
 
   for line in reader:
-    pracownik = Pracownik(line[0], line[1], line[2])
+    pracownik = Pracownik(line[0], line[1], float(line[2]))
 
     print(pracownik)
     print(f"Kwota netto: {pracownik.oblicz_netto()}")
-    print(f"Koszty pracodawcy: {pracownik.oblicz_koszty_pracodawcy()}")
-    print(f"Raport: {pracownik.wygeneruj_raport()}")
+    print(f"Koszty pracodawcy: {pracownik.koszty_pracodawcy()}")
+    print(f"Raport:")
+    pracownik.wygeneruj_raport()
     print()
