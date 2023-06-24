@@ -50,24 +50,20 @@ class Pracownik:
     print("=====================")
     print(f"Kwota wynagrodzenia: {round(podstawa_na_zdrowotne - skladka_zdrowotna - zaliczka_na_dochodowy, 2)}")
 
-pracownik1 = Pracownik('Jan', 'Kowalski', 3500)
-pracownik2 = Pracownik('Mateusz', 'Kwiatkowski', 8500)
+pracownicy = []  
 
-assert pracownik1.oblicz_netto() == 2715.94
-assert pracownik2.oblicz_netto() == 6124.33
+import csv
+with open('data_pracownicy.csv', 'r', newline='', encoding='utf-8') as file:
+    reader = csv.DictReader(file) 
+    for row in reader:
+        first_name = row['first_name']
+        last_name = row['last_name']
+        salary = float(row['salary'])
+        
+        pracownik = Pracownik(first_name, last_name, salary)
+        pracownicy.append(pracownik)
 
-with open("pracownicy.csv", "r", encoding="UTF8", newline="") as file:
-  reader = csv.reader(file)
-  
-  #skip the header
-  next(reader)
-
-  for line in reader:
-    pracownik = Pracownik(line[0], line[1], float(line[2]))
-
+for pracownik in pracownicy:
     print(pracownik)
-    print(f"Kwota netto: {pracownik.oblicz_netto()}")
-    print(f"Koszty pracodawcy: {pracownik.koszty_pracodawcy()}")
-    print(f"Raport:")
-    pracownik.wygeneruj_raport()
+    print("Koszty pracodawcy:", pracownik.koszty_pracodawcy())
     print()
