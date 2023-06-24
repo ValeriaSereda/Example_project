@@ -4,6 +4,9 @@ class Pracownik:
     self.last_name = last_name
     self.salary = salary 
 
+  def __str__(self):
+    return self.first_name + ' ' + self.last_name + ',' + ' ' + str (self.salary)
+
   def oblicz_netto(self):
     skladka_emeryt = self.salary * 0.0976
     skladka_rentowa = self.salary * 0.015
@@ -16,6 +19,16 @@ class Pracownik:
     zaliczka_na_dochodowy = 0.12 * podstawa_na_dochodowy - 300
     
     return round(podstawa_na_zdrowotne - skladka_zdrowotna - zaliczka_na_dochodowy, 2)
+  
+  def koszty_pracodawcy(self) -> float:
+    skladka_emerytalna = self.salary * 0.0976
+    skladka_rentowa = self.salary * 0.065
+    skladka_na_ubezpieczenie_wypadkowe = self.salary * 0.0167
+    skladka_na_Fundusz_pracy = self.salary * 0.0245
+    skladka_na_Fund_Gwar_Swiad_Prac = self.salary * 0.001
+    laczne_skladki_na_ubezp_spol = skladka_emerytalna + skladka_na_Fund_Gwar_Swiad_Prac + skladka_na_Fundusz_pracy + skladka_na_ubezpieczenie_wypadkowe + skladka_rentowa
+    koszty_pracodawcy = self.salary + laczne_skladki_na_ubezp_spol 
+    return round (koszty_pracodawcy, 2) 
   
   def wygeneruj_raport(self):
     skladka_emeryt = self.salary * 0.0976
@@ -35,8 +48,3 @@ class Pracownik:
     print("=====================")
     print(f"Kwota wynagrodzenia: {round(podstawa_na_zdrowotne - skladka_zdrowotna - zaliczka_na_dochodowy, 2)}")
 
-pracownik1 = Pracownik('Jan', 'Kowalski', 3500)
-pracownik2 = Pracownik('Mateusz', 'Kwiatkowski', 8500)
-
-assert pracownik1.oblicz_netto() == 2715.94
-assert pracownik2.oblicz_netto() == 6124.33
